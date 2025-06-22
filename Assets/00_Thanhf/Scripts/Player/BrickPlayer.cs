@@ -1,22 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BrickPlayer : MonoBehaviour
 {
     [SerializeField] private GameObject _brickPrefab;
-    [SerializeField] private Transform _playerBody, _brickParent;
+    [SerializeField] private Transform _playerBody;
+    [SerializeField] private Transform _brickParent;
+    [SerializeField] private Vector3 _startBrickPos = Vector3.zero;
+    [SerializeField] private Vector3 _offset = new Vector3(0, 0.3f, 0);
 
-    [SerializeField] private Vector3 _startBrickPos;
-    [SerializeField] private Vector3 _offset;
-    [SerializeField] private int _brickCount;
-    [SerializeField] private List<GameObject> _listBrick = new List<GameObject>();
+    private int _brickCount;
+    private readonly List<GameObject> _listBrick = new List<GameObject>();
+
     public int Count
     {
-        get
-        {
-            return _brickCount;
-        }
+        get => _brickCount;
         set
         {
             _brickCount = Mathf.Max(0, value);
@@ -24,16 +22,22 @@ public class BrickPlayer : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
         Init();
     }
 
     private void Init()
     {
+        if (_brickPrefab == null || _playerBody == null || _brickParent == null)
+        {
+            Debug.LogError("BrickPrefab, PlayerBody, or BrickParent is not assigned!");
+            enabled = false;
+            return;
+        }
         _brickCount = 0;
         _playerBody.localPosition = new Vector3(0, 1.3f, 0);
-        _listBrick.Clear();
+        ClearBricks();
     }
 
     private void ClearBricks()
@@ -41,7 +45,9 @@ public class BrickPlayer : MonoBehaviour
         foreach (GameObject brick in _listBrick)
         {
             if (brick != null)
+            {
                 Destroy(brick);
+            }
         }
         _listBrick.Clear();
     }
@@ -49,16 +55,15 @@ public class BrickPlayer : MonoBehaviour
     [ContextMenu("Add")]
     private void UpdateBrickPositions()
     {
-        // Kiem tra xem so luong gach va so luong trong list:
-        //Neu so luong gach lon hon => them vao list, neu khong thi chuyen den buoc tiep
+        // Ensure enough bricks in the pool
         while (_listBrick.Count < _brickCount)
         {
             GameObject newBrick = Instantiate(_brickPrefab, _brickParent);
-            newBrick.SetActive(true);
+            newBrick.SetActive(false); // Inactive until positioned
             _listBrick.Add(newBrick);
         }
 
-        // Cap nhat lai vi tri gach va vi tri cua nguoi choi
+        // Update brick positions and visibility
         for (int i = 0; i < _listBrick.Count; i++)
         {
             bool isActive = i < _brickCount;
@@ -69,6 +74,7 @@ public class BrickPlayer : MonoBehaviour
             }
         }
 
+        // Update player body position
         _playerBody.localPosition = new Vector3(0, 1.3f, 0) + (_brickCount > 0 ? (_brickCount - 1) * _offset : Vector3.zero);
     }
 
