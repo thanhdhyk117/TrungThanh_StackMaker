@@ -1,6 +1,7 @@
+using System.Collections;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     // Enum định nghĩa hướng của player
     public enum E_DirectionPlayer
@@ -18,13 +19,23 @@ public class PlayerInput : MonoBehaviour
     private E_DirectionPlayer currentDirection = E_DirectionPlayer.NONE;
 
     // Tốc độ di chuyển của player
-    [SerializeField] private float moveSpeed = 5f;
-    private Vector3 offset;
-
+    [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private bool isMoving;
+    [SerializeField] private Transform startPoint;
+    [SerializeField] private GameObject _currentBrickRay;
+    [SerializeField] BrickPlayer brickPlayer;
+    [SerializeField] private float _timeToMove = 0.1f;
     private void Update()
     {
         GetInputTouch();
+    }
 
+    private void Init()
+    {
+        transform.position = startPoint.position;
+        currentDirection = E_DirectionPlayer.NONE;
+        isMoving = false;
+        dirPlayerPos = Vector3.zero;
     }
 
     private void GetInputTouch()
@@ -35,33 +46,73 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             startPosTouch = mousePosition;
-            Debug.Log($"Start Position: {startPosTouch}");
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             endPosTouch = mousePosition;
-            Debug.Log($"End Position: {endPosTouch}");
 
             // Tính hướng di chuyển
             dirPlayerPos = (endPosTouch - startPosTouch).normalized;
 
             // Xác định hướng từ vector
             currentDirection = GetDirectionFromVector(dirPlayerPos);
-            Debug.Log($"Current Direction: {currentDirection}");
-
             // Xoay player theo hướng
             RotatePlayer();
-            MovePlayer();
-
+            StartCoroutine(MoveStepByStep(_timeToMove));
         }
     }
 
-    private void CastRay()
+    private IEnumerator MoveStepByStep(float _time)
     {
+        isMoving = true;
+
+        while (currentDirection != E_DirectionPlayer.NONE)
+        {
+            bool canMove = CastRay();
+
+            if (!canMove)
+            {
+                currentDirection = E_DirectionPlayer.NONE;
+                break;
+            }
+
+            // Dừng di chuyển nếu không đủ gạch để qua cầu
+            if (_currentBrickRay != null && _currentBrickRay.CompareTag(TagConst.TAG_BRIDGE) && brickPlayer.Count <= 0)
+            {
+                currentDirection = E_DirectionPlayer.NONE;
+                _currentBrickRay = null;
+                break;
+            }
+
+            Move();
+
+            if (_currentBrickRay != null && _currentBrickRay.CompareTag(TagConst.TAG_BRICK))
+            {
+                brickPlayer.Count++;
+                _currentBrickRay.GetComponent<BoxCollider>().enabled = false;
+                _currentBrickRay.GetComponent<MeshRenderer>().enabled = false;
+                _currentBrickRay = null;
+            }
+            if (_currentBrickRay != null && _currentBrickRay.CompareTag(TagConst.TAG_BRIDGE))
+            {
+                brickPlayer.Count--;
+                _currentBrickRay.GetComponent<BoxCollider>().enabled = false;
+                _currentBrickRay.GetComponent<MeshRenderer>().enabled = false;
+                _currentBrickRay = null;
+            }
+            yield return new WaitForSeconds(_time);
+        }
+        isMoving = false;
+    }
+
+    private bool CastRay()
+    {
+
         if (currentDirection == E_DirectionPlayer.NONE)
         {
-            return;
+            // return;
+            return false;
         }
 
         // Xác định hướng raycast dựa trên currentDirection
@@ -83,8 +134,9 @@ public class PlayerInput : MonoBehaviour
         }
 
         // Tạo raycast từ vị trí player
-        Vector3 rayOrigin = transform.position;
+        Vector3 rayOrigin = new Vector3(transform.position.x, 0.1f, transform.position.z);
         RaycastHit hit;
+
         bool hasHit = Physics.Raycast(rayOrigin, rayDirection, out hit, 1);
 
         Vector3 endPoint;
@@ -92,16 +144,19 @@ public class PlayerInput : MonoBehaviour
         {
             endPoint = hit.point;
             Debug.Log($"Raycast hit: {hit.collider.name} at {hit.point}");
+            _currentBrickRay = hit.collider.gameObject;
+            return !hit.collider.CompareTag(TagConst.TAG_GROUND) && !hit.collider.CompareTag(TagConst.TAG_WIN_AREA);
         }
         else
         {
             endPoint = rayOrigin + rayDirection;
-            Debug.Log("Raycast did not hit anything.");
+            return true;
         }
 
         Debug.DrawRay(rayOrigin, (endPoint - rayOrigin), Color.red, 1f);
     }
 
+    #region Controller
     // Xác định hướng từ vector
     private E_DirectionPlayer GetDirectionFromVector(Vector3 direction)
     {
@@ -140,7 +195,6 @@ public class PlayerInput : MonoBehaviour
             return E_DirectionPlayer.BACK;
         }
     }
-
     // Xoay player dựa trên hướng
     private void RotatePlayer()
     {
@@ -148,10 +202,10 @@ public class PlayerInput : MonoBehaviour
         switch (currentDirection)
         {
             case E_DirectionPlayer.FORWARD:
-                rotation = new Vector3(0, 180, 0); // Hướng lên
+                rotation = new Vector3(0, 180, 0); // Hướng tiến về phía trước
                 break;
             case E_DirectionPlayer.BACK:
-                rotation = new Vector3(0, 0, 0); // Hướng xuống
+                rotation = new Vector3(0, 0, 0); // Hướng tiến về phía sau
                 break;
             case E_DirectionPlayer.LEFT:
                 rotation = new Vector3(0, 90, 0); // Hướng trái
@@ -163,11 +217,10 @@ public class PlayerInput : MonoBehaviour
                 return; // Không xoay nếu không có hướng
         }
         transform.rotation = Quaternion.Euler(rotation);
-        Debug.Log($"Player Rotation: {rotation}");
     }
 
     // Di chuyển player dựa trên hướng
-    private void MovePlayer()
+    private void Move()
     {
         Vector3 moveDirection = Vector3.zero;
 
@@ -191,7 +244,7 @@ public class PlayerInput : MonoBehaviour
         }
 
         // Di chuyển player
-        transform.position += moveDirection;
-        CastRay();
+        transform.position += moveDirection * moveSpeed;
     }
+    #endregion
 }
