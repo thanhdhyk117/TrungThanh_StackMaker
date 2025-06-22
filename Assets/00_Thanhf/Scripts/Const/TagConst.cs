@@ -9,5 +9,4 @@ public class TagConst
     public const string TAG_GROUND = "Ground";
     public const string TAG_BRIDGE = "Bridge";
     public const string TAG_WIN_AREA = "WinArea";
-
 }

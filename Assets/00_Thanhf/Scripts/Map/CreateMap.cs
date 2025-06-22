@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreateMap : MonoBehaviour
 {
     [SerializeField] GameObject _brickPrefab;
-    [SerializeField] Transform startInstance;
+    [SerializeField] Transform startInstance, _brickParent;
 
     [SerializeField] int _horizontalValue, _verticalValue;
 
@@ -29,8 +29,9 @@ public class CreateMap : MonoBehaviour
             {
                 Vector3 _newObjPos = startInstance.position + new Vector3(prefabScaleX * i * transform.localScale.x, 0, prefabScaleY * j * transform.localScale.z);
 
-                GameObject _newObj = Instantiate(_brickPrefab, _newObjPos, Quaternion.Euler(new Vector3(-90, 0, -180)), transform);
+                GameObject _newObj = Instantiate(_brickPrefab, _newObjPos, Quaternion.Euler(new Vector3(-90, 0, -180)), _brickParent);
                 _newObj.SetActive(true);
+                if (_newObj.GetComponent<MapItem>() == null) _newObj.AddComponent<MapItem>();
             }
         }
     }
