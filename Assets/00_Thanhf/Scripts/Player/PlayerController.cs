@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
             if (_currentBrickRay != null && _tagActions.TryGetValue(_currentBrickRay.tag, out var action))
             {
                 action.Invoke();
-                _currentBrickRay.DisableComponent();
+                _currentBrickRay.SetMapType(0);
                 _currentBrickRay = null;
             }
             yield return new WaitForSeconds(timeToMove);
