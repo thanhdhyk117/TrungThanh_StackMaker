@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
         // Initialize tag actions
         _tagActions[TagConst.TAG_BRICK] = () => brickPlayer.Count++;
         _tagActions[TagConst.TAG_BRIDGE] = () => brickPlayer.Count--;
+        _tagActions[TagConst.TAG_WIN_AREA] = EndLevel;
     }
 
     void Start()
@@ -101,15 +102,14 @@ public class PlayerController : MonoBehaviour
 
             if (!canMove || brickPlayer == null)
             {
-                currentDirection = EDirectionPlayer.None;
+                StopMoving();
                 break;
             }
 
             // Dừng di chuyển nếu không đủ gạch để qua cầu
             if (_currentBrickRay != null && _currentBrickRay.CompareTag(TagConst.TAG_BRIDGE) && brickPlayer.Count <= 0)
             {
-                currentDirection = EDirectionPlayer.None;
-                _currentBrickRay = null;
+                StopMoving();
                 break;
             }
 
@@ -119,9 +119,10 @@ public class PlayerController : MonoBehaviour
             if (_currentBrickRay != null && _tagActions.TryGetValue(_currentBrickRay.tag, out var action))
             {
                 action.Invoke();
-                _currentBrickRay.SetMapType(0);
+                _currentBrickRay.DisableComponent();
                 _currentBrickRay = null;
             }
+
             yield return new WaitForSeconds(timeToMove);
         }
 
@@ -144,7 +145,7 @@ public class PlayerController : MonoBehaviour
             _ => Vector3.zero
         };
 
-        Vector3 rayOrigin = new Vector3(transform.position.x, 0.1f, transform.position.z);
+        Vector3 rayOrigin = new Vector3(transform.position.x, transform.root.position.y + .1f, transform.position.z);
         bool hasHit = Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, 1f);
 
 #if UNITY_EDITOR
@@ -208,5 +209,20 @@ public class PlayerController : MonoBehaviour
 
         transform.position += moveDirection * moveSpeed;
     }
+
+    private void StopMoving()
+    {
+        currentDirection = EDirectionPlayer.None;
+        _currentBrickRay = null;
+        isMoving = false;
+    }
+
+    private void EndLevel()
+    {
+        StopMoving();
+        // Thực hiện các hành động kết thúc level, ví dụ: chuyển cảnh, hiển thị UI, v.v.
+        Debug.Log("Level Ended");
+    }
+
     #endregion
 }

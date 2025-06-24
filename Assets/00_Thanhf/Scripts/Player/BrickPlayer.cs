@@ -75,7 +75,7 @@ public class BrickPlayer : MonoBehaviour
         }
 
         // Update player body position
-        _playerBody.localPosition = new Vector3(0, 1.3f, 0) + (_brickCount > 0 ? (_brickCount - 1) * _offset : Vector3.zero);
+        _playerBody.localPosition = _startBrickPos + (_brickCount > 0 ? (_brickCount) * _offset : Vector3.zero);
     }
 
     private void OnDestroy()
