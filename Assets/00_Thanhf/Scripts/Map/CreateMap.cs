@@ -15,7 +15,6 @@ public class CreateMap : MonoBehaviour
         CreateMapByMatrix(_horizontalValue, _verticalValue);
     }
 
-
     private void CreateMapByMatrix(int _x, int _y)
     {
         if (_x <= 0 || _y <= 0) return;
