@@ -9,6 +9,7 @@ TagManager:
   - Bridge
   - WinArea
   - Wall
+  - Water
   layers:
   - Default
   - TransparentFX
