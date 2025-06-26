@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -52,7 +53,6 @@ public class BrickPlayer : MonoBehaviour
         _listBrick.Clear();
     }
 
-    [ContextMenu("Add")]
     private void UpdateBrickPositions()
     {
         // Ensure enough bricks in the pool

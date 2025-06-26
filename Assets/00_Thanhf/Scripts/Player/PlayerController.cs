@@ -34,6 +34,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _timeToMove = 0.01f;
     [SerializeField] private bool isMoving;
 
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private int _animStateCount = 0;
+    [SerializeField] private LevelComplete levelComplete;
+
+    [Header("Score")]
+    [SerializeField] private int score = 0;
+
     private readonly Dictionary<string, System.Action> _tagActions = new Dictionary<string, System.Action>();
 
     private void Awake()
@@ -42,6 +50,11 @@ public class PlayerController : MonoBehaviour
         _tagActions[TagConst.TAG_BRICK] = () => brickPlayer.Count++;
         _tagActions[TagConst.TAG_BRIDGE] = () => brickPlayer.Count--;
         _tagActions[TagConst.TAG_WIN_AREA] = EndLevel;
+        _tagActions[TagConst.TAG_FINISH_AREA] = () =>
+        {
+            levelComplete.PlayParticle();
+            _timeToMove = 0.1f;
+        };
     }
 
     void Start()
@@ -119,7 +132,6 @@ public class PlayerController : MonoBehaviour
             if (_currentBrickRay != null && _tagActions.TryGetValue(_currentBrickRay.tag, out var action))
             {
                 action.Invoke();
-                _currentBrickRay.DisableComponent();
                 _currentBrickRay = null;
             }
 
@@ -148,16 +160,23 @@ public class PlayerController : MonoBehaviour
         Vector3 rayOrigin = new Vector3(transform.position.x, transform.root.position.y + .1f, transform.position.z);
         bool hasHit = Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, 1f);
 
-#if UNITY_EDITOR
-        Vector3 endPoint = hasHit ? hit.point : rayOrigin + rayDirection;
-        Debug.Log(hasHit ? $"Raycast hit: {hit.collider.name} at {hit.point}" : "Raycast missed");
-        Debug.DrawRay(rayOrigin, rayDirection, Color.red, 1f);
-#endif
+        // #if UNITY_EDITOR
+        //         Vector3 endPoint = hasHit ? hit.point : rayOrigin + rayDirection;
+        //         Debug.Log(hasHit && hit.collider.CompareTag(TagConst.TAG_WIN_AREA) ? $"Raycast hit: {hit.collider.name} at {hit.point}" : "");
+        //         Debug.DrawRay(rayOrigin, rayDirection, Color.red, 1f);
+        // #endif
 
         if (hasHit)
         {
             _currentBrickRay = hit.collider.GetComponent<MapItem>();
-            return !hit.collider.CompareTag(TagConst.TAG_GROUND) && !hit.collider.CompareTag(TagConst.TAG_WIN_AREA);
+            if (_currentBrickRay != null && _currentBrickRay.CompareTag(TagConst.TAG_BRICK) || _currentBrickRay.CompareTag(TagConst.TAG_BRIDGE))
+            {
+                if (_currentBrickRay.CompareTag(TagConst.TAG_BRICK)) score++;
+                if (_currentBrickRay.CompareTag(TagConst.TAG_BRIDGE)) score--;
+
+                _currentBrickRay.DisableComponent();
+            }
+            return !hit.collider.CompareTag(TagConst.TAG_GROUND);
         }
 
         _currentBrickRay = null;
@@ -215,6 +234,7 @@ public class PlayerController : MonoBehaviour
         currentDirection = EDirectionPlayer.None;
         _currentBrickRay = null;
         isMoving = false;
+
     }
 
     private void EndLevel()
@@ -222,7 +242,36 @@ public class PlayerController : MonoBehaviour
         StopMoving();
         // Thực hiện các hành động kết thúc level, ví dụ: chuyển cảnh, hiển thị UI, v.v.
         Debug.Log("Level Ended");
+        StartCoroutine(EffectEndLevel());
     }
 
-    #endregion
+    public void ChangeAnim(int animationIndex)
+    {
+        if (animator == null || animationIndex < 0)
+        {
+            return;
+        }
+
+        if (_animStateCount != animationIndex)
+        {
+            Debug.Log($"Change animation to: {animationIndex}");
+            animator.SetInteger("renwu", animationIndex);
+            _animStateCount = animationIndex;
+        }
+    }
+
+    IEnumerator EffectEndLevel()
+    {
+        while (brickPlayer.Count > 0)
+        {
+            brickPlayer.Count--;
+            score++;
+            yield return new WaitForSeconds(0.1f);
+        }
+        yield return new WaitUntil(() => brickPlayer.Count == 0);
+        levelComplete.EffectEndLevel();
+        ChangeAnim(2);
+
+        #endregion
+    }
 }
