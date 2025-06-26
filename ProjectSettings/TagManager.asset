@@ -10,6 +10,8 @@ TagManager:
   - WinArea
   - Wall
   - Water
+  - StartPoint
+  - FinishPoint
   layers:
   - Default
   - TransparentFX
