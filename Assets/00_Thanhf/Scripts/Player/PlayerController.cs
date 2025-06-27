@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         if (startPoint == null || brickPlayer == null)
         {
+            Debug.LogError("StartPoint or BrickPlayer is not assigned!");
             enabled = false;
             return;
         }
