@@ -12,6 +12,7 @@ TagManager:
   - Water
   - StartPoint
   - FinishPoint
+  - Push
   layers:
   - Default
   - TransparentFX
