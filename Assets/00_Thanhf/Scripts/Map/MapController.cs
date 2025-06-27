@@ -24,6 +24,10 @@ public class MapController : MonoBehaviour
     [ContextMenu("Init Map")]
     private void Init()
     {
+
+        _playerController = FindObjectOfType<PlayerController>();
+        _levelComplete = FindObjectOfType<LevelComplete>();
+
         if (_bridgeObj == null || _brickObj == null)
         {
             Debug.LogError("Bridge or Brick object is not assigned in MapController.");
@@ -65,8 +69,6 @@ public class MapController : MonoBehaviour
             {
                 continue;
             }
-
-
         }
     }
 }
