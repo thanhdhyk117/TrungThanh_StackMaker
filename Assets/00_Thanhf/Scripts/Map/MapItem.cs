@@ -5,6 +5,7 @@ public class MapItem : MonoBehaviour
     [SerializeField] private BoxCollider _collider;
     [SerializeField] private MeshRenderer _mesh;
     public EDirectionPlayer directionPush = EDirectionPlayer.None;
+    public bool isPush { get; private set; } = false;
     public bool isStop = false;
 
     void Start()
@@ -24,30 +25,31 @@ public class MapItem : MonoBehaviour
 
         if (_mesh != null && transform.CompareTag(TagConst.TAG_BRIDGE))
         {
-            _mesh.enabled = false; // Disable mesh renderer for bridge bricks
+            _mesh.enabled = false; // Tắt mesh của nếu obj bridge
         }
     }
 
     public void DisableComponent()
     {
-        if (transform.CompareTag(TagConst.TAG_START_AREA) || transform.CompareTag(TagConst.TAG_WIN_AREA) || transform.CompareTag(TagConst.TAG_PUSH))
+
+        if (transform.CompareTag(TagConst.TAG_START_AREA) || transform.CompareTag(TagConst.TAG_WIN_AREA))
         {
-            _collider.enabled = true;
+            // _collider.enabled = true;
             return;
         }
         else if (transform.CompareTag(TagConst.TAG_BRIDGE))
         {
-            // Disable the collider and mesh renderer for bricks
+            // Tắt mesh của bricks
             if (_collider != null)
             {
-                _collider.enabled = false;
                 _mesh.enabled = true;
             }
-
+            isPush = true;
             return;
         }
 
-        if (_collider != null) _collider.enabled = false;
         if (_mesh != null) _mesh.enabled = false;
+        isPush = true;
+        Debug.Log($"DisableComponent: {gameObject.name} isPush: {isPush}");
     }
 }
