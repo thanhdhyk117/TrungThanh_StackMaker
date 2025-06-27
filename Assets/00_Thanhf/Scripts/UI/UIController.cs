@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    PlayerController _playerController;
+
     [Header("UI Slider Controller")]
     public Image slider;
     private float fillAmount = 0f;
@@ -47,6 +49,10 @@ public class UIController : MonoBehaviour
     // Cập nhật dữ liệu UI từ LevelManager
     private void UpdateUIData()
     {
+        if (_playerController == null)
+        {
+            _playerController = FindObjectOfType<PlayerController>();
+        }
         if (LevelManager.Instance != null)
         {
             int currentLevel = LevelManager.Instance.GetCurrentLevel();
@@ -102,6 +108,7 @@ public class UIController : MonoBehaviour
     IEnumerator LoadSceneAsync()
     {
         float elapsedTime = 0f;
+        _playerController.enabled = false; // Tắt PlayerController trong khi load scene
         _loadPanelObject.SetActive(true);
         while (elapsedTime < _timeToLoad)
         {
@@ -113,5 +120,6 @@ public class UIController : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         _loadPanelObject.SetActive(false);
+        _playerController.enabled = true; // Bật lại PlayerController sau khi load scene
     }
 }
