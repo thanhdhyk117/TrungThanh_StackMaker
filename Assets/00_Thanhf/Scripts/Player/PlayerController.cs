@@ -13,8 +13,6 @@ public enum EDirectionPlayer
 
 public class PlayerController : MonoBehaviour
 {
-    // Enum định nghĩa hướng của player
-
     private Vector3 startPosTouch;
     private Vector3 endPosTouch;
     private Vector3 dirPlayerPos;
@@ -28,13 +26,11 @@ public class PlayerController : MonoBehaviour
         new Vector3(0, 0, 0)    // Back
     };
 
-    // Tốc độ di chuyển của player
     [SerializeField] private Transform startPoint;
     [SerializeField] private MapItem _currentBrickRay;
-    [SerializeField] BrickPlayer brickPlayer;
+    [SerializeField] private BrickPlayer brickPlayer;
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float _timeToMove = 0.01f;
-    [SerializeField] private bool isMoving;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
@@ -48,24 +44,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private UIController uiController;
 
     private readonly Dictionary<string, System.Action> _tagActions = new Dictionary<string, System.Action>();
+
     public int Score
     {
         get => score;
         private set
         {
             score = value;
-            uiController.FillAmount += value;
+            if (uiController != null) uiController.FillAmount += value;
         }
     }
+
     private void Awake()
     {
-        // Initialize tag actions
-        _tagActions[TagConst.TAG_BRICK] = () => brickPlayer.Count++;
-        _tagActions[TagConst.TAG_BRIDGE] = () => brickPlayer.Count -= 2;
         _tagActions[TagConst.TAG_WIN_AREA] = EndLevel;
         _tagActions[TagConst.TAG_FINISH_AREA] = () =>
         {
-            levelComplete.PlayParticle();
+            if (levelComplete != null) levelComplete.PlayParticle();
             _timeToMove = 0.1f;
         };
     }
@@ -74,6 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         Init();
     }
+
     private void Update()
     {
         GetInputTouch();
@@ -83,19 +79,18 @@ public class PlayerController : MonoBehaviour
     {
         if (startPoint == null || brickPlayer == null)
         {
-            Debug.LogError("Loi point start");
             enabled = false;
             return;
         }
         transform.position = startPoint.position;
         currentDirection = EDirectionPlayer.None;
-        isMoving = false;
         dirPlayerPos = Vector3.zero;
     }
 
     private void GetInputTouch()
     {
-        // Chuyển tọa độ chuột từ màn hình sang viewport
+        if (Camera.main == null) return;
+
         var mousePosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);
 
         if (Input.GetMouseButtonDown(0))
@@ -106,65 +101,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             endPosTouch = mousePosition;
-
-            // Tính hướng di chuyển
             dirPlayerPos = (endPosTouch - startPosTouch).normalized;
-
-            // Xác định hướng từ vector
             currentDirection = GetDirectionFromVector(dirPlayerPos);
-            // Xoay player theo hướng
             RotatePlayer();
             StartCoroutine(MoveStepByStep(_timeToMove));
         }
     }
-
-    private IEnumerator MoveStepByStep(float timeToMove)
-    {
-        isMoving = true;
-
-        while (currentDirection != EDirectionPlayer.None)
-        {
-            bool canMove = CastRay();
-
-            if (!canMove || brickPlayer == null)
-            {
-                StopMoving();
-                break;
-            }
-
-            // Dừng di chuyển nếu không đủ gạch để qua cầu
-            if (_currentBrickRay != null && _currentBrickRay.CompareTag(TagConst.TAG_BRIDGE) && brickPlayer.Count <= 0)
-            {
-                StopMoving();
-                break;
-            }
-
-            Move();
-            // Cập nhật vị trí của player
-            if (_currentBrickRay.directionPush != EDirectionPlayer.None && !_currentBrickRay.isStop)
-            {
-                currentDirection = _currentBrickRay.directionPush;
-                RotatePlayer();
-                _currentBrickRay = null; // Reset current brick ray after moving
-            }
-            else if (_currentBrickRay.isStop)
-            {
-                StopMoving();
-                _currentBrickRay = null; // Reset current brick ray after stopping
-            }
-
-            if (_currentBrickRay != null && _tagActions.TryGetValue(_currentBrickRay.tag, out var action))
-            {
-                action.Invoke();
-                _currentBrickRay = null;
-            }
-
-            yield return new WaitForSeconds(timeToMove);
-        }
-
-        isMoving = false;
-    }
-
     private bool CastRay()
     {
         if (currentDirection == EDirectionPlayer.None)
@@ -181,27 +123,90 @@ public class PlayerController : MonoBehaviour
             _ => Vector3.zero
         };
 
-        Vector3 rayOrigin = new Vector3(transform.position.x, transform.root.position.y + .1f, transform.position.z);
+        Vector3 rayOrigin = new Vector3(transform.position.x, transform.root.position.y + 0.1f, transform.position.z);
         bool hasHit = Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, 1f);
 
         if (hasHit)
         {
             _currentBrickRay = hit.collider.GetComponent<MapItem>();
-            if (_currentBrickRay != null && _currentBrickRay.CompareTag(TagConst.TAG_BRICK) || _currentBrickRay.CompareTag(TagConst.TAG_BRIDGE))
+            if (_currentBrickRay != null)
             {
-                if (_currentBrickRay.CompareTag(TagConst.TAG_BRICK)) Score++;
+                // Dừng lại trước khi di chuyển đến tường
+                if (hit.collider.CompareTag(TagConst.TAG_GROUND))
+                {
 
-                _currentBrickRay.DisableComponent();
+                    return false;
+                }
+                else if (_currentBrickRay.CompareTag(TagConst.TAG_BRICK) || _currentBrickRay.CompareTag(TagConst.TAG_BRIDGE))
+                {
+                    if (brickPlayer != null && !_currentBrickRay.isPush)
+                    {
+                        brickPlayer.Count += _currentBrickRay.CompareTag(TagConst.TAG_BRIDGE) ? -2 : 1;
+                    }
+
+                    if (_currentBrickRay.CompareTag(TagConst.TAG_BRICK) && !_currentBrickRay.isPush) Score++;
+
+                    // Gọi DisableComponent() cho brick hoặc bridge
+                    _currentBrickRay.DisableComponent();
+
+                    return true;
+                }
+                else
+                {
+                    // Cho phép di chuyển qua các đối tượng khác
+                    return true;
+                }
             }
-            return !hit.collider.CompareTag(TagConst.TAG_GROUND);
+            else
+            {
+                // Nếu không có MapItem, cho phép di chuyển
+                return true;
+            }
         }
 
         _currentBrickRay = null;
         return true;
     }
 
-    #region Controller
-    // Xác định hướng từ vector
+    private IEnumerator MoveStepByStep(float timeToMove)
+    {
+        while (currentDirection != EDirectionPlayer.None)
+        {
+            bool canMove = CastRay();
+
+            if (!canMove || brickPlayer == null)
+            {
+                StopMoving();
+                break;
+            }
+
+            Move();
+
+            // Kiểm tra sau khi di chuyển
+            if (_currentBrickRay != null && _currentBrickRay.isStop)
+            {
+                Debug.Log("Stopping");
+                StopMoving();
+                break;
+            }
+
+            // Cập nhật vị trí của player
+            if (_currentBrickRay != null && _currentBrickRay.directionPush != EDirectionPlayer.None && !_currentBrickRay.isStop)
+            {
+                currentDirection = _currentBrickRay.directionPush;
+                RotatePlayer();
+                _currentBrickRay = null; // Reset current brick ray after moving
+            }
+
+            if (_currentBrickRay != null && _tagActions.TryGetValue(_currentBrickRay.tag, out var action))
+            {
+                action.Invoke();
+                _currentBrickRay = null;
+            }
+
+            yield return new WaitForSeconds(timeToMove);
+        }
+    }
     private EDirectionPlayer GetDirectionFromVector(Vector3 direction)
     {
         if (direction.sqrMagnitude < 0.01f)
@@ -219,8 +224,6 @@ public class PlayerController : MonoBehaviour
         return direction.y > 0 ? EDirectionPlayer.Forward : EDirectionPlayer.Back;
     }
 
-
-    // Xoay player dựa trên hướng
     private void RotatePlayer()
     {
         if (currentDirection == EDirectionPlayer.None)
@@ -231,7 +234,6 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(_rotationVectors[(int)currentDirection]);
     }
 
-    // Di chuyển player dựa trên hướng
     private void Move()
     {
         Vector3 moveDirection = currentDirection switch
@@ -250,13 +252,11 @@ public class PlayerController : MonoBehaviour
     {
         currentDirection = EDirectionPlayer.None;
         _currentBrickRay = null;
-        isMoving = false;
     }
 
     private void EndLevel()
     {
         StopMoving();
-        // Thực hiện các hành động kết thúc level, ví dụ: chuyển cảnh, hiển thị UI, v.v.
         Debug.Log("Level Ended");
         StartCoroutine(EffectEndLevel());
     }
@@ -270,24 +270,21 @@ public class PlayerController : MonoBehaviour
 
         if (_animStateCount != animationIndex)
         {
-            Debug.Log($"Change animation to: {animationIndex}");
             animator.SetInteger("renwu", animationIndex);
             _animStateCount = animationIndex;
         }
     }
 
-    IEnumerator EffectEndLevel()
+    private IEnumerator EffectEndLevel()
     {
-        while (brickPlayer.Count > 0)
+        while (brickPlayer != null && brickPlayer.Count > 0)
         {
             brickPlayer.Count--;
             Score++;
             yield return new WaitForSeconds(0.1f);
         }
-        yield return new WaitUntil(() => brickPlayer.Count == 0);
-        levelComplete.EffectEndLevel();
+        yield return new WaitUntil(() => brickPlayer == null || brickPlayer.Count == 0);
+        if (levelComplete != null) levelComplete.EffectEndLevel();
         ChangeAnim(2);
-
-        #endregion
     }
 }
