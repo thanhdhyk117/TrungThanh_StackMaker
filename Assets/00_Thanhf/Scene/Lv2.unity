@@ -10947,34 +10947,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 406730728}
-  - component: {fileID: 406730727}
+  - component: {fileID: 406730729}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &406730727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406730726}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ae2273dc913434c90a8e68a0c55a06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelCompleteUI: {fileID: 1857292216}
-  _player: {fileID: 1209044329}
-  _chestObjects:
-  - {fileID: 1095322158770008}
-  - {fileID: 1502763603624537}
-  _congratulationsParticles:
-  - {fileID: 198723745283702567}
-  - {fileID: 198957175593977118}
+  m_IsActive: 1
 --- !u!4 &406730728
 Transform:
   m_ObjectHideFlags: 0
@@ -10990,6 +10970,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &406730729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406730726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d69e083b8cc14a14682f3234cb31b0a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &409675079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33313,6 +33305,7 @@ MonoBehaviour:
   _animStateCount: 0
   levelComplete: {fileID: 1839507041}
   score: 0
+  uiController: {fileID: 2069676926}
 --- !u!1 &1209257923
 GameObject:
   m_ObjectHideFlags: 0
@@ -37765,7 +37758,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1437717614}
-  - component: {fileID: 1437717615}
   m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
@@ -37795,26 +37787,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 675}
   m_SizeDelta: {x: 0, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1437717615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1437717613}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9225853236012244b8005788251c4157, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1571039449}
-  maxFillAmount: 15
-  _childSlider: {fileID: 0}
-  _loadPanelObject: {fileID: 0}
-  _sliderLoading: {fileID: 0}
-  _childSliderLoading: {fileID: 0}
-  _levelText: {fileID: 8344106}
-  _coinText: {fileID: 1352443302}
 --- !u!1001 &1439909341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48188,6 +48160,7 @@ MonoBehaviour:
   _congratulationsParticles:
   - {fileID: 198723745283702567}
   - {fileID: 198957175593977118}
+  coinComplete: {fileID: 451298113}
 --- !u!1001 &1840349506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54083,7 +54056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1571039449}
   maxFillAmount: 15
-  _childSlider: {fileID: 0}
+  _childSlider: {fileID: 85972689}
   _loadPanelObject: {fileID: 1738391397}
   _sliderLoading: {fileID: 672868894}
   _childSliderLoading: {fileID: 363698899}
