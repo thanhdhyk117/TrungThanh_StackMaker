@@ -1,10 +1,11 @@
 using UnityEngine;
-using UnityEngine.Timeline;
 
 public class MapItem : MonoBehaviour
 {
     [SerializeField] private BoxCollider _collider;
     [SerializeField] private MeshRenderer _mesh;
+    public EDirectionPlayer directionPush = EDirectionPlayer.None;
+    public bool isStop = false;
 
     void Start()
     {
@@ -29,7 +30,7 @@ public class MapItem : MonoBehaviour
 
     public void DisableComponent()
     {
-        if (transform.CompareTag(TagConst.TAG_START_AREA) || transform.CompareTag(TagConst.TAG_WIN_AREA))
+        if (transform.CompareTag(TagConst.TAG_START_AREA) || transform.CompareTag(TagConst.TAG_WIN_AREA) || transform.CompareTag(TagConst.TAG_PUSH))
         {
             _collider.enabled = true;
             return;

@@ -7,5 +7,7 @@ public class TagConst
     public const string TAG_WIN_AREA = "WinArea";
     public const string TAG_START_AREA = "StartPoint";
     public const string TAG_FINISH_AREA = "FinishPoint";
+    public const string TAG_PUSH = "Push";
+
 
 }

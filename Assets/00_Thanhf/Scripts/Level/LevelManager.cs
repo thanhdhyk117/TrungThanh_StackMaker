@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
-    
+
     private int currentLevel = 1;
     private int currentScore = 0;
     private const string LEVEL_KEY = "CurrentLevel";
@@ -69,6 +69,11 @@ public class LevelManager : MonoBehaviour
             Debug.LogWarning("No more levels available!");
             // Có thể thêm logic khi hoàn thành tất cả level
         }
+    }
+
+    public void ReloadLevel()
+    {
+        LoadLevel(currentLevel);
     }
 
     // Reset về level đầu tiên

@@ -1,15 +1,16 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class UIController : MonoBehaviour
 {
     [Header("UI Slider Controller")]
     public Image slider;
     private float fillAmount = 0f;
-    public int maxFillAmount = 100;
+    public int maxFillAmount = 20;
     [SerializeField] private RectTransform _childSlider;
+
 
     [Header("UI Data Display")]
     [SerializeField] private GameObject _loadPanelObject;

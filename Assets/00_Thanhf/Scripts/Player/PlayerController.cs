@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EDirectionPlayer
+{
+    None = 0,
+    Forward = 1,
+    Right = 2,
+    Left = 3,
+    Back = 4,
+}
+
 public class PlayerController : MonoBehaviour
 {
     // Enum định nghĩa hướng của player
-    public enum EDirectionPlayer
-    {
-        None = 0,
-        Forward = 1,
-        Right = 2,
-        Left = 3,
-        Back = 4,
-    }
+
     private Vector3 startPosTouch;
     private Vector3 endPosTouch;
     private Vector3 dirPlayerPos;
@@ -42,13 +44,24 @@ public class PlayerController : MonoBehaviour
     [Header("Score")]
     [SerializeField] private int score = 0;
 
-    private readonly Dictionary<string, System.Action> _tagActions = new Dictionary<string, System.Action>();
+    [Header("UI")]
+    [SerializeField] private UIController uiController;
 
+    private readonly Dictionary<string, System.Action> _tagActions = new Dictionary<string, System.Action>();
+    public int Score
+    {
+        get => score;
+        private set
+        {
+            score = value;
+            uiController.FillAmount += value;
+        }
+    }
     private void Awake()
     {
         // Initialize tag actions
         _tagActions[TagConst.TAG_BRICK] = () => brickPlayer.Count++;
-        _tagActions[TagConst.TAG_BRIDGE] = () => brickPlayer.Count--;
+        _tagActions[TagConst.TAG_BRIDGE] = () => brickPlayer.Count -= 2;
         _tagActions[TagConst.TAG_WIN_AREA] = EndLevel;
         _tagActions[TagConst.TAG_FINISH_AREA] = () =>
         {
@@ -127,7 +140,18 @@ public class PlayerController : MonoBehaviour
             }
 
             Move();
-
+            // Cập nhật vị trí của player
+            if (_currentBrickRay.directionPush != EDirectionPlayer.None && !_currentBrickRay.isStop)
+            {
+                currentDirection = _currentBrickRay.directionPush;
+                RotatePlayer();
+                _currentBrickRay = null; // Reset current brick ray after moving
+            }
+            else if (_currentBrickRay.isStop)
+            {
+                StopMoving();
+                _currentBrickRay = null; // Reset current brick ray after stopping
+            }
 
             if (_currentBrickRay != null && _tagActions.TryGetValue(_currentBrickRay.tag, out var action))
             {
@@ -160,19 +184,12 @@ public class PlayerController : MonoBehaviour
         Vector3 rayOrigin = new Vector3(transform.position.x, transform.root.position.y + .1f, transform.position.z);
         bool hasHit = Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, 1f);
 
-        // #if UNITY_EDITOR
-        //         Vector3 endPoint = hasHit ? hit.point : rayOrigin + rayDirection;
-        //         Debug.Log(hasHit && hit.collider.CompareTag(TagConst.TAG_WIN_AREA) ? $"Raycast hit: {hit.collider.name} at {hit.point}" : "");
-        //         Debug.DrawRay(rayOrigin, rayDirection, Color.red, 1f);
-        // #endif
-
         if (hasHit)
         {
             _currentBrickRay = hit.collider.GetComponent<MapItem>();
             if (_currentBrickRay != null && _currentBrickRay.CompareTag(TagConst.TAG_BRICK) || _currentBrickRay.CompareTag(TagConst.TAG_BRIDGE))
             {
-                if (_currentBrickRay.CompareTag(TagConst.TAG_BRICK)) score++;
-                if (_currentBrickRay.CompareTag(TagConst.TAG_BRIDGE)) score--;
+                if (_currentBrickRay.CompareTag(TagConst.TAG_BRICK)) Score++;
 
                 _currentBrickRay.DisableComponent();
             }
@@ -234,7 +251,6 @@ public class PlayerController : MonoBehaviour
         currentDirection = EDirectionPlayer.None;
         _currentBrickRay = null;
         isMoving = false;
-
     }
 
     private void EndLevel()
@@ -265,7 +281,7 @@ public class PlayerController : MonoBehaviour
         while (brickPlayer.Count > 0)
         {
             brickPlayer.Count--;
-            score++;
+            Score++;
             yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitUntil(() => brickPlayer.Count == 0);

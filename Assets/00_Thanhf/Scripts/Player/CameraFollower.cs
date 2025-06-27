@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFollower : MonoBehaviour
@@ -14,7 +12,7 @@ public class CameraFollower : MonoBehaviour
 
         // Calculate the desired position
         Vector3 desiredPosition = target.position + offset;
-        // desiredPosition.x = 0;
+        desiredPosition.x = 0;
         // Smoothly interpolate to the desired position
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         // Update the camera position
