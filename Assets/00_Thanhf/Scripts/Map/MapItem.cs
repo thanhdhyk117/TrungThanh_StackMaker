@@ -4,11 +4,12 @@ public class MapItem : MonoBehaviour
 {
     [SerializeField] private BoxCollider _collider;
     [SerializeField] private MeshRenderer _mesh;
+
     public EDirectionPlayer directionPush = EDirectionPlayer.None;
     public bool isPush { get; private set; } = false;
     public bool isStop = false;
 
-    void Start()
+    private void Start()
     {
         Init();
     }
@@ -40,7 +41,7 @@ public class MapItem : MonoBehaviour
         else if (transform.CompareTag(TagConst.TAG_BRIDGE))
         {
             // Tắt mesh của bricks
-            if (_collider != null)
+            if (_mesh != null)
             {
                 _mesh.enabled = true;
             }

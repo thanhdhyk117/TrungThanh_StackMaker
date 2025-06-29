@@ -2,31 +2,36 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-    [SerializeField] private GameObject _bridgeObj, _brickObj;
-    [SerializeField] private int _brickCount, _bridgeCount;
-    [SerializeField] private int _brickPassedCount = 0;
-    [SerializeField] private int _bridgePassedCount = 0;
+    public static MapController Instance { get; private set; }
 
-    [SerializeField] private PlayerController _playerController;
-    [SerializeField] private LevelComplete _levelComplete;
-    // Start is called before the first frame update
-    void Start()
-    {
-        Init();
-    }
+    [SerializeField] private GameObject _bridgeObj, _brickObj;
+    private int _brickCount;
+    private int _bridgeCount;
+    public int BrickCount => _brickCount;
+    public int BridgeCount => _bridgeCount;
 
     // Update is called once per frame
-    void Update()
+    private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
+    private void Start()
+    {
+        Init();
     }
 
     [ContextMenu("Init Map")]
     private void Init()
     {
-
-        _playerController = FindObjectOfType<PlayerController>();
-        _levelComplete = FindObjectOfType<LevelComplete>();
 
         if (_bridgeObj == null || _brickObj == null)
         {
@@ -43,32 +48,7 @@ public class MapController : MonoBehaviour
         _brickCount = 0;
         _bridgeCount = 0;
 
-        for (int i = 0; i < _brickObj.transform.childCount; i++)
-        {
-            Transform child = _brickObj.transform.GetChild(i).GetChild(0);
-
-            if (child.CompareTag(TagConst.TAG_BRICK))
-            {
-                _brickCount++;
-            }
-            else
-            {
-                continue;
-            }
-        }
-
-        for (int i = 0; i < _bridgeObj.transform.childCount; i++)
-        {
-            Transform child = _bridgeObj.transform.GetChild(i).GetChild(0);
-
-            if (child.CompareTag(TagConst.TAG_BRIDGE))
-            {
-                _bridgeCount++;
-            }
-            else
-            {
-                continue;
-            }
-        }
+        _brickCount = _brickObj.transform.childCount;
+        _bridgeCount = _bridgeObj.transform.childCount;
     }
 }

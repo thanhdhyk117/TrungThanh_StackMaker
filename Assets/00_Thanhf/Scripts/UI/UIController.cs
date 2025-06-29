@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    PlayerController _playerController;
+    private PlayerController _playerController;
+
 
     [Header("UI Slider Controller")]
     public Image slider;
@@ -17,7 +18,7 @@ public class UIController : MonoBehaviour
     [Header("UI Data Display")]
     [SerializeField] private GameObject _loadPanelObject;
     [SerializeField] private Image _sliderLoading;
-    private int _timeToLoad = 3;
+    [SerializeField] private int _timeToLoad = 3;
     [SerializeField] private RectTransform _childSliderLoading;
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private TextMeshProUGUI _coinText;
@@ -38,6 +39,8 @@ public class UIController : MonoBehaviour
         {
             slider.fillAmount = FillAmount;
         }
+
+
 
         // Hiển thị dữ liệu từ LevelManager
         UpdateUIData();
@@ -63,6 +66,8 @@ public class UIController : MonoBehaviour
         {
             Debug.LogError("LevelManager instance not found!");
         }
+
+        maxFillAmount = MapController.Instance.BrickCount - MapController.Instance.BridgeCount;
     }
 
     // Method to set fillAmount externally (e.g., from another script or UI input)
