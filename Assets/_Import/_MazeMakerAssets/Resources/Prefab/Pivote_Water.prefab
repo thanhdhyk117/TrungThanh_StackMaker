@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 33150582636411261}
   - component: {fileID: 23054566729670232}
   - component: {fileID: 403151196191299757}
-  - component: {fileID: 2613944860959730318}
+  - component: {fileID: 3012890427800657616}
   m_Layer: 0
   m_Name: zhangaikuai
-  m_TagString: Water
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.0000002, z: 0.04877422}
   m_Center: {x: 0, y: 0, z: -0.02438711}
---- !u!114 &2613944860959730318
+--- !u!114 &3012890427800657616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,6 +120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 403151196191299757}
   _mesh: {fileID: 23054566729670232}
+  directionPush: 0
+  isStop: 0
 --- !u!1 &1121066348938118
 GameObject:
   m_ObjectHideFlags: 0
