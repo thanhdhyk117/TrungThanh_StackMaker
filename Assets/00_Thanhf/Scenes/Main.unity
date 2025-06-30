@@ -302,10 +302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1832384}
-  _mesh: {fileID: 1832385}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &8344104
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,10 +864,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 47434353}
-  _mesh: {fileID: 47434354}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &54692641
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,10 +982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 54692643}
-  _mesh: {fileID: 54692644}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &56122149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,10 +1100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 56122151}
-  _mesh: {fileID: 56122152}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &73843776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1881,10 +1865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 113394703}
-  _mesh: {fileID: 113394704}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &118561819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2568,10 +2548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 130162871}
-  _mesh: {fileID: 130162872}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &130954157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2814,10 +2790,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 137509622}
-  _mesh: {fileID: 137509623}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &141213999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2998,10 +2970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 145473951}
-  _mesh: {fileID: 145473952}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &154483498
 GameObject:
   m_ObjectHideFlags: 0
@@ -3120,10 +3088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 154483500}
-  _mesh: {fileID: 154483501}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &154694863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3366,10 +3330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 158557209}
-  _mesh: {fileID: 158557210}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &160100737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3567,6 +3527,10 @@ PrefabInstance:
     - target: {fileID: 1045506591760351, guid: f206ccc114e101b4dafffd4915d4a812, type: 3}
       propertyPath: m_Name
       value: Pivote_Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378148185903626210, guid: f206ccc114e101b4dafffd4915d4a812, type: 3}
+      propertyPath: directionPush
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4919342471493218070, guid: f206ccc114e101b4dafffd4915d4a812, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4066,10 +4030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 209935675}
-  _mesh: {fileID: 209935676}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &212576649
 GameObject:
   m_ObjectHideFlags: 0
@@ -4519,10 +4479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 231390113}
-  _mesh: {fileID: 231390114}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &234180019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4987,10 +4943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 253705576}
-  _mesh: {fileID: 253705577}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &257876816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5171,10 +5123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 258610992}
-  _mesh: {fileID: 258610993}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &260922109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5391,10 +5339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 269918241}
-  _mesh: {fileID: 269918242}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &272663420
 GameObject:
   m_ObjectHideFlags: 0
@@ -5513,10 +5457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 272663422}
-  _mesh: {fileID: 272663423}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &277168425
 GameObject:
   m_ObjectHideFlags: 0
@@ -5635,10 +5575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 277168427}
-  _mesh: {fileID: 277168428}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &281773897
 GameObject:
   m_ObjectHideFlags: 0
@@ -6081,10 +6017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 307276579}
-  _mesh: {fileID: 307276580}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &307424489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6677,10 +6609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 334710545}
-  _mesh: {fileID: 334710546}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &346366794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7060,10 +6988,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 364345912}
-  _mesh: {fileID: 364345913}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &367987732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7324,6 +7248,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pivote_Brick
       objectReference: {fileID: 0}
+    - target: {fileID: 1378148185903626210, guid: f206ccc114e101b4dafffd4915d4a812, type: 3}
+      propertyPath: directionPush
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4919342471493218070, guid: f206ccc114e101b4dafffd4915d4a812, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -7558,10 +7486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 389318681}
-  _mesh: {fileID: 389318682}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &389327706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7774,10 +7698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 399927515}
-  _mesh: {fileID: 399927516}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &406730726
 GameObject:
   m_ObjectHideFlags: 0
@@ -7788,6 +7708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 406730728}
   - component: {fileID: 406730729}
+  - component: {fileID: 406730730}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -7822,6 +7743,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d69e083b8cc14a14682f3234cb31b0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &406730730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406730726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d08a5d96120bd214c8c213ce1f3df8fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelIndex: 1
 --- !u!1001 &407780591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8064,10 +7998,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 419591494}
-  _mesh: {fileID: 419591495}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &420848201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8348,10 +8278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 431883793}
-  _mesh: {fileID: 431883794}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &441282142
 GameObject:
   m_ObjectHideFlags: 0
@@ -8762,10 +8688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 460341665}
-  _mesh: {fileID: 460341666}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &463081550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9259,10 +9181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 480361095}
-  _mesh: {fileID: 480361096}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &480452535
 GameObject:
   m_ObjectHideFlags: 0
@@ -9381,10 +9299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 480452537}
-  _mesh: {fileID: 480452538}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &481399853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9689,10 +9603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 509507821}
-  _mesh: {fileID: 509507822}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &510471208
 GameObject:
   m_ObjectHideFlags: 0
@@ -9811,10 +9721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 510471210}
-  _mesh: {fileID: 510471211}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &511132452
 GameObject:
   m_ObjectHideFlags: 0
@@ -9933,10 +9839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 511132454}
-  _mesh: {fileID: 511132455}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &513879014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10241,10 +10143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 519017822}
-  _mesh: {fileID: 519017823}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &520828853
 GameObject:
   m_ObjectHideFlags: 0
@@ -10363,10 +10261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 520828855}
-  _mesh: {fileID: 520828856}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &528781571
 GameObject:
   m_ObjectHideFlags: 0
@@ -10485,10 +10379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 528781573}
-  _mesh: {fileID: 528781574}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &544741547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10917,10 +10807,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 560417068}
-  _mesh: {fileID: 560417069}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &563080114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11225,10 +11111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 567702716}
-  _mesh: {fileID: 567702717}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &568111407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11543,10 +11425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 570226505}
-  _mesh: {fileID: 570226506}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &570591700
 GameObject:
   m_ObjectHideFlags: 0
@@ -11665,10 +11543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 570591702}
-  _mesh: {fileID: 570591703}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &574411891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11973,10 +11847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 584864226}
-  _mesh: {fileID: 584864227}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &585197458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12574,10 +12444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 615422037}
-  _mesh: {fileID: 615422038}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &616599936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12820,10 +12686,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 624797236}
-  _mesh: {fileID: 624797237}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &624938870
 GameObject:
   m_ObjectHideFlags: 0
@@ -13067,10 +12929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 628442826}
-  _mesh: {fileID: 628442827}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &628773806
 GameObject:
   m_ObjectHideFlags: 0
@@ -13650,10 +13508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 651034185}
-  _mesh: {fileID: 651034186}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &653711924
 GameObject:
   m_ObjectHideFlags: 0
@@ -13772,10 +13626,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 653711926}
-  _mesh: {fileID: 653711927}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &654921134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14218,10 +14068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 679076963}
-  _mesh: {fileID: 679076964}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &686245240
 GameObject:
   m_ObjectHideFlags: 0
@@ -14340,10 +14186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 686245242}
-  _mesh: {fileID: 686245243}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &686561529
 GameObject:
   m_ObjectHideFlags: 0
@@ -14462,10 +14304,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 686561531}
-  _mesh: {fileID: 686561532}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &687782058
 GameObject:
   m_ObjectHideFlags: 0
@@ -14584,10 +14422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 687782060}
-  _mesh: {fileID: 687782061}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &691866954
 GameObject:
   m_ObjectHideFlags: 0
@@ -14706,10 +14540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 691866956}
-  _mesh: {fileID: 691866957}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &708437066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15014,10 +14844,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 713995141}
-  _mesh: {fileID: 713995142}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &714289156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15198,10 +15024,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 716870131}
-  _mesh: {fileID: 716870132}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &720611905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16053,10 +15875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 774944440}
-  _mesh: {fileID: 774944441}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &777933851
 GameObject:
   m_ObjectHideFlags: 0
@@ -16175,10 +15993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 777933853}
-  _mesh: {fileID: 777933854}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &780525846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16545,10 +16359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 790670506}
-  _mesh: {fileID: 790670507}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &790957682
 GameObject:
   m_ObjectHideFlags: 0
@@ -17422,10 +17232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 819775028}
-  _mesh: {fileID: 819775029}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &826390199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17992,10 +17798,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 846201827}
-  _mesh: {fileID: 846201828}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &851866858
 GameObject:
   m_ObjectHideFlags: 0
@@ -18114,10 +17916,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 851866860}
-  _mesh: {fileID: 851866861}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &852930852
 GameObject:
   m_ObjectHideFlags: 0
@@ -18486,10 +18284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 867181737}
-  _mesh: {fileID: 867181738}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &868003833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19042,10 +18836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 915636015}
-  _mesh: {fileID: 915636016}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &928058434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19412,10 +19202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 947953467}
-  _mesh: {fileID: 947953468}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &948864568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19596,10 +19382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 950064088}
-  _mesh: {fileID: 950064089}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &954637281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19780,10 +19562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 963769533}
-  _mesh: {fileID: 963769534}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &966938531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20460,10 +20238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1007783133}
-  _mesh: {fileID: 1007783134}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1012416688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20830,10 +20604,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1026952951}
-  _mesh: {fileID: 1026952952}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1027060592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21014,10 +20784,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1027235469}
-  _mesh: {fileID: 1027235470}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &1029383093
 GameObject:
   m_ObjectHideFlags: 0
@@ -21136,10 +20902,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1029383095}
-  _mesh: {fileID: 1029383096}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1035483220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21382,10 +21144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1042005962}
-  _mesh: {fileID: 1042005963}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &1043740256
 GameObject:
   m_ObjectHideFlags: 0
@@ -21638,10 +21396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1055995044}
-  _mesh: {fileID: 1055995045}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1058186060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22165,10 +21919,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1082383240}
-  _mesh: {fileID: 1082383241}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &1086106496
 GameObject:
   m_ObjectHideFlags: 0
@@ -22318,10 +22068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1086922804}
-  _mesh: {fileID: 1086922805}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1088706668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22398,6 +22144,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 23310507170802036, guid: f206ccc114e101b4dafffd4915d4a812, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378148185903626210, guid: f206ccc114e101b4dafffd4915d4a812, type: 3}
+      propertyPath: isStop
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4919342471493218070, guid: f206ccc114e101b4dafffd4915d4a812, type: 3}
@@ -22699,10 +22449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1099208613}
-  _mesh: {fileID: 1099208614}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1100453646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22883,10 +22629,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1103019448}
-  _mesh: {fileID: 1103019449}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1105497018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23988,10 +23730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1153733915}
-  _mesh: {fileID: 1153733916}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1157971143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24234,10 +23972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1169129057}
-  _mesh: {fileID: 1169129058}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &1170344465
 GameObject:
   m_ObjectHideFlags: 0
@@ -24356,10 +24090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1170344467}
-  _mesh: {fileID: 1170344468}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1172534895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24540,10 +24270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1179918954}
-  _mesh: {fileID: 1179918955}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1181307342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25172,10 +24898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1208403090}
-  _mesh: {fileID: 1208403091}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &1209044327
 GameObject:
   m_ObjectHideFlags: 0
@@ -25223,14 +24945,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPoint: {fileID: 852930853}
-  _currentBrickRay: {fileID: 0}
   brickPlayer: {fileID: 1043740258}
   moveSpeed: 1
-  _timeToMove: 0.05
+  timeToMove: 0.01
   animator: {fileID: 2473136813204635368}
-  _animStateCount: 0
+  animStateCount: 0
   levelComplete: {fileID: 1839507041}
-  score: 0
   uiController: {fileID: 2069676926}
 --- !u!1 &1209257923
 GameObject:
@@ -25425,10 +25145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1213633667}
-  _mesh: {fileID: 1213633668}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1235300358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25795,10 +25511,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1254008047}
-  _mesh: {fileID: 1254008048}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1255799645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25979,10 +25691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1258061948}
-  _mesh: {fileID: 1258061949}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1260989980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26572,10 +26280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1277127273}
-  _mesh: {fileID: 1277127274}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1290513575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26880,10 +26584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1306265301}
-  _mesh: {fileID: 1306265302}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1307130927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27064,10 +26764,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1307769566}
-  _mesh: {fileID: 1307769567}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1314673000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27767,10 +27463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1363985485}
-  _mesh: {fileID: 1363985486}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1365486672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28443,10 +28135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1415424351}
-  _mesh: {fileID: 1415424352}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &1419041648
 GameObject:
   m_ObjectHideFlags: 0
@@ -28565,10 +28253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1419041650}
-  _mesh: {fileID: 1419041651}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1424605158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29655,10 +29339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1482210513}
-  _mesh: {fileID: 1482210514}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1500519268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29963,10 +29643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1525869076}
-  _mesh: {fileID: 1525869077}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &1527567111
 GameObject:
   m_ObjectHideFlags: 0
@@ -30085,10 +29761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1527567113}
-  _mesh: {fileID: 1527567114}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &1534862851
 GameObject:
   m_ObjectHideFlags: 0
@@ -30282,10 +29954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1544947275}
-  _mesh: {fileID: 1544947276}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1549629202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30565,10 +30233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1565895010}
-  _mesh: {fileID: 1565895011}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1567300822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30805,12 +30469,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bridgeObj: {fileID: 118660431}
   _brickObj: {fileID: 1731624295}
-  _brickCount: 74
-  _bridgeCount: 11
-  _brickPassedCount: 0
-  _bridgePassedCount: 0
-  _playerController: {fileID: 1209044329}
-  _levelComplete: {fileID: 1839507041}
 --- !u!1 &1587577762
 GameObject:
   m_ObjectHideFlags: 0
@@ -30929,10 +30587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1587577764}
-  _mesh: {fileID: 1587577765}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1590478036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31113,10 +30767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1590811245}
-  _mesh: {fileID: 1590811246}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1591913387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31359,10 +31009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1599480319}
-  _mesh: {fileID: 1599480320}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &1610099008
 GameObject:
   m_ObjectHideFlags: 0
@@ -31481,10 +31127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1610099010}
-  _mesh: {fileID: 1610099011}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1611397468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31702,10 +31344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1614666604}
-  _mesh: {fileID: 1614666605}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1615111568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32187,10 +31825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1645625797}
-  _mesh: {fileID: 1645625798}
-  directionPush: 0
-  isStop: 0
 --- !u!65 &1645625797
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32541,10 +32175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1650032529}
-  _mesh: {fileID: 1650032530}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1656087181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33112,10 +32742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1673584041}
-  _mesh: {fileID: 1673584042}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1675068006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33668,10 +33294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1701200089}
-  _mesh: {fileID: 1701200090}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1703216788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33914,10 +33536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1717708610}
-  _mesh: {fileID: 1717708611}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1720027518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34423,10 +34041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1747792591}
-  _mesh: {fileID: 1747792592}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1749318850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34607,10 +34221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1760629626}
-  _mesh: {fileID: 1760629627}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1760633566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34791,10 +34401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1761473029}
-  _mesh: {fileID: 1761473030}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1765966512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35285,10 +34891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1790347656}
-  _mesh: {fileID: 1790347657}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1790699121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35814,10 +35416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1809449249}
-  _mesh: {fileID: 1809449250}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1810501749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36122,10 +35720,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1812673207}
-  _mesh: {fileID: 1812673208}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &1813455771
 GameObject:
   m_ObjectHideFlags: 0
@@ -36155,7 +35749,7 @@ Transform:
   m_GameObject: {fileID: 1813455771}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.47, y: 2.75, z: 31.528}
+  m_LocalPosition: {x: 0.47, y: 2.75, z: 32.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -36241,11 +35835,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1813455771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
+  m_Script: {fileID: 11500000, guid: fe6edd8b0dd951f4f90273b28b2eb7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1813455773}
-  _mesh: {fileID: 1813455774}
   directionPush: 0
   isStop: 0
 --- !u!1001 &1814170019
@@ -36428,10 +36020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1817520819}
-  _mesh: {fileID: 1817520820}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1821226518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36506,8 +36094,8 @@ GameObject:
   - component: {fileID: 1839507039}
   - component: {fileID: 1839507038}
   - component: {fileID: 1839507037}
-  - component: {fileID: 1839507040}
   - component: {fileID: 1839507041}
+  - component: {fileID: 1839507042}
   m_Layer: 0
   m_Name: CongratulationTrigger
   m_TagString: FinishPoint
@@ -36601,22 +36189,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839507033}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1839507040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839507033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _collider: {fileID: 1839507037}
-  _mesh: {fileID: 1839507038}
-  directionPush: 0
-  isStop: 0
 --- !u!114 &1839507041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36640,6 +36212,20 @@ MonoBehaviour:
   _coinComplete: {fileID: 451298113}
   _btnComplete: {fileID: 1381757489}
   _btnReload: {fileID: 0}
+--- !u!114 &1839507042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839507033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429f09f69e2fa8441b5cc460fafec468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionPush: 0
+  isStop: 0
 --- !u!1 &1840792218
 GameObject:
   m_ObjectHideFlags: 0
@@ -36852,10 +36438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1844430510}
-  _mesh: {fileID: 1844430511}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1847059692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37098,10 +36680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1850441580}
-  _mesh: {fileID: 1850441581}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1857285437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37689,10 +37267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1894351793}
-  _mesh: {fileID: 1894351794}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &1896147571
 GameObject:
   m_ObjectHideFlags: 0
@@ -37811,10 +37385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1896147573}
-  _mesh: {fileID: 1896147574}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1896271701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38057,10 +37627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 1901334639}
-  _mesh: {fileID: 1901334640}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &1916636551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40044,10 +39610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 2030517089}
-  _mesh: {fileID: 2030517090}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &2032621107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40290,10 +39852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 2033961852}
-  _mesh: {fileID: 2033961853}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &2038728468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40799,10 +40357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 2067038577}
-  _mesh: {fileID: 2067038578}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &2069676924
 GameObject:
   m_ObjectHideFlags: 0
@@ -40859,6 +40413,7 @@ MonoBehaviour:
   _childSlider: {fileID: 85972689}
   _loadPanelObject: {fileID: 1738391397}
   _sliderLoading: {fileID: 672868894}
+  _timeToLoad: 3
   _childSliderLoading: {fileID: 363698899}
   _levelText: {fileID: 8344106}
   _coinText: {fileID: 1352443302}
@@ -41352,10 +40907,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 2088841464}
-  _mesh: {fileID: 2088841465}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &2090646983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41673,10 +41224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 2111249601}
-  _mesh: {fileID: 2111249602}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &2114170690
 GameObject:
   m_ObjectHideFlags: 0
@@ -41795,10 +41342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 2114170692}
-  _mesh: {fileID: 2114170693}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &2116872310
 GameObject:
   m_ObjectHideFlags: 0
@@ -41917,10 +41460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 2116872312}
-  _mesh: {fileID: 2116872313}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &2120465364
 GameObject:
   m_ObjectHideFlags: 0
@@ -42039,10 +41578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 2120465366}
-  _mesh: {fileID: 2120465367}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &2126052363
 GameObject:
   m_ObjectHideFlags: 0
@@ -42161,10 +41696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 2126052365}
-  _mesh: {fileID: 2126052366}
-  directionPush: 0
-  isStop: 0
 --- !u!1 &2139398410
 GameObject:
   m_ObjectHideFlags: 0
@@ -42283,10 +41814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 2139398412}
-  _mesh: {fileID: 2139398413}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &2145905703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43828,7 +43355,7 @@ GameObject:
   - component: {fileID: 33926114277305138}
   - component: {fileID: 23310507438002613}
   - component: {fileID: 8834815452048565585}
-  - component: {fileID: 7471283146930756381}
+  - component: {fileID: 8834815452048565586}
   m_Layer: 0
   m_Name: dimian
   m_TagString: StartPoint
@@ -101037,22 +100564,6 @@ Transform:
   - {fileID: 4092116344658502}
   m_Father: {fileID: 1731624296}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
---- !u!114 &7471283146930756381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494018232631963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _collider: {fileID: 8834815452048565585}
-  _mesh: {fileID: 23310507438002613}
-  directionPush: 0
-  isStop: 0
 --- !u!1001 &7901808700785465339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101166,6 +100677,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000004, z: 0.29989845}
   m_Center: {x: 0.0000060945777, y: -0.0000002920447, z: 0.14994933}
+--- !u!114 &8834815452048565586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494018232631963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc5903ac850cb34dbc6e9b457c6b96c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionPush: 0
+  isStop: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
