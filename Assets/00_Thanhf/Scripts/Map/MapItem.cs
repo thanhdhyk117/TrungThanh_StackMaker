@@ -1,56 +1,59 @@
 using UnityEngine;
 
-public class MapItem : MonoBehaviour
+public interface IInteractable
 {
-    [SerializeField] private BoxCollider _collider;
-    [SerializeField] private MeshRenderer _mesh;
+    bool Interact(PlayerController player);
+}
 
-    public EDirectionPlayer directionPush = EDirectionPlayer.None;
-    public bool isPush { get; private set; } = false;
-    public bool isStop = false;
+public abstract class MapItem : MonoBehaviour, IInteractable
+{
+    [SerializeField] protected EDirectionPlayer directionPush = EDirectionPlayer.None;
+    [SerializeField] protected bool isStop = false;
+    protected bool isPush = false;
 
-    private void Start()
+    protected Collider Collider { get; private set; }
+    protected MeshRenderer MeshRenderer { get; private set; }
+
+    protected virtual void Awake()
     {
-        Init();
+        Initialize();
     }
 
-    void Reset()
+    private void Reset()
     {
-        Init();
+        Initialize();
     }
 
-    private void Init()
+    private void Initialize()
     {
-        if (_collider == null) _collider = GetComponent<BoxCollider>();
-        if (_mesh == null) _mesh = GetComponent<MeshRenderer>();
+        Collider = GetComponent<Collider>();
+        MeshRenderer = GetComponent<MeshRenderer>();
 
-        if (_mesh != null && transform.CompareTag(TagConst.TAG_BRIDGE))
+        if (Collider == null)
         {
-            _mesh.enabled = false; // Tắt mesh của nếu obj bridge
-        }
-    }
-
-    public void DisableComponent()
-    {
-
-        if (transform.CompareTag(TagConst.TAG_START_AREA) || transform.CompareTag(TagConst.TAG_WIN_AREA))
-        {
-            // _collider.enabled = true;
-            return;
-        }
-        else if (transform.CompareTag(TagConst.TAG_BRIDGE))
-        {
-            // Tắt mesh của bricks
-            if (_mesh != null)
-            {
-                _mesh.enabled = true;
-            }
-            isPush = true;
-            return;
+            Collider = gameObject.AddComponent<BoxCollider>();
         }
 
-        if (_mesh != null) _mesh.enabled = false;
-        isPush = true;
-        Debug.Log($"DisableComponent: {gameObject.name} isPush: {isPush}");
+        if (MeshRenderer == null)
+        {
+            MeshRenderer = gameObject.AddComponent<MeshRenderer>();
+        }
+
+        OnInitialize();
     }
+
+    protected virtual void OnInitialize()
+    {
+    }
+
+    public abstract bool Interact(PlayerController player);
+
+    protected void SetPushState(bool state)
+    {
+        isPush = state;
+    }
+
+    public EDirectionPlayer DirectionPush => directionPush;
+    public bool IsStop => isStop;
+    public bool IsPush => isPush;
 }
