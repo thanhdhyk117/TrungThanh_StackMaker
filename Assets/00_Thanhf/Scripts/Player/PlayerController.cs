@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum EDirectionPlayer
@@ -17,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 endPosTouch;
     private Vector3 dirPlayerPos;
     private EDirectionPlayer currentDirection = EDirectionPlayer.None;
+    private Coroutine moveCoroutine;
 
     private readonly Vector3[] _rotationVectors = {
         Vector3.zero,           // None
@@ -27,47 +27,38 @@ public class PlayerController : MonoBehaviour
     };
 
     [SerializeField] private Transform startPoint;
-    [SerializeField] private MapItem _currentBrickRay;
     [SerializeField] private BrickPlayer brickPlayer;
     [SerializeField] private float moveSpeed = 1f;
-    [SerializeField] private float _timeToMove = 0.01f;
+    [SerializeField] private float timeToMove = 0.01f;
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
-    [SerializeField] private int _animStateCount = 0;
+    [SerializeField] private int animStateCount = 0;
+
+    [Header("Dependencies")]
     [SerializeField] private LevelComplete levelComplete;
-
-    [Header("Score")]
-    [SerializeField] private int score = 0;
-
-    [Header("UI")]
+    public LevelComplete LevelComplete => levelComplete;
     [SerializeField] private UIController uiController;
 
-    private readonly Dictionary<string, System.Action> _tagActions = new Dictionary<string, System.Action>();
+    private int score;
+    private MapItem currentBrickRay;
 
     public int Score
     {
         get => score;
-        private set
+        set
         {
             score = value;
             if (uiController != null) uiController.FillAmount += value;
         }
     }
 
-    private void Awake()
-    {
-        _tagActions[TagConst.TAG_WIN_AREA] = EndLevel;
-        _tagActions[TagConst.TAG_FINISH_AREA] = () =>
-        {
-            if (levelComplete != null) levelComplete.PlayParticle();
-            _timeToMove = 0.1f;
-        };
-    }
+    public BrickPlayer BrickPlayer => brickPlayer;
 
-    void Start()
+
+    private void Start()
     {
-        Init();
+        Initialize();
     }
 
     private void Update()
@@ -75,7 +66,7 @@ public class PlayerController : MonoBehaviour
         GetInputTouch();
     }
 
-    private void Init()
+    private void Initialize()
     {
         if (startPoint == null || brickPlayer == null)
         {
@@ -105,9 +96,11 @@ public class PlayerController : MonoBehaviour
             dirPlayerPos = (endPosTouch - startPosTouch).normalized;
             currentDirection = GetDirectionFromVector(dirPlayerPos);
             RotatePlayer();
-            StartCoroutine(MoveStepByStep(_timeToMove));
+            if (moveCoroutine != null) StopCoroutine(moveCoroutine);
+            moveCoroutine = StartCoroutine(MoveStepByStep(timeToMove));
         }
     }
+
     private bool CastRay()
     {
         if (currentDirection == EDirectionPlayer.None)
@@ -126,46 +119,30 @@ public class PlayerController : MonoBehaviour
 
         Vector3 rayOrigin = new Vector3(transform.position.x, transform.root.position.y + 0.1f, transform.position.z);
         bool hasHit = Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, 1f);
+        Debug.DrawRay(rayOrigin, rayDirection * 1f, hasHit ? Color.red : Color.green, 1f);
 
         if (hasHit)
         {
-            _currentBrickRay = hit.collider.GetComponent<MapItem>();
-            if (_currentBrickRay != null)
+            if (hit.collider.CompareTag(TagConst.TAG_GROUND))
             {
-                // Dừng lại trước khi di chuyển đến tường
-                if (hit.collider.CompareTag(TagConst.TAG_GROUND))
-                {
-
-                    return false;
-                }
-                else if (_currentBrickRay.CompareTag(TagConst.TAG_BRICK) || _currentBrickRay.CompareTag(TagConst.TAG_BRIDGE))
-                {
-                    if (brickPlayer != null && !_currentBrickRay.isPush)
-                    {
-                        brickPlayer.Count += _currentBrickRay.CompareTag(TagConst.TAG_BRIDGE) ? -2 : 1;
-                    }
-
-                    if (_currentBrickRay.CompareTag(TagConst.TAG_BRICK) && !_currentBrickRay.isPush) Score++;
-
-                    // Gọi DisableComponent() cho brick hoặc bridge
-                    _currentBrickRay.DisableComponent();
-
-                    return true;
-                }
-                else
-                {
-                    // Cho phép di chuyển qua các đối tượng khác
-                    return true;
-                }
+                Debug.Log("Hit wall (TAG_GROUND)");
+                return false;
             }
-            else
+
+            var interactable = hit.collider.GetComponent<IInteractable>();
+            if (interactable != null)
             {
-                // Nếu không có MapItem, cho phép di chuyển
-                return true;
+                currentBrickRay = hit.collider.GetComponent<MapItem>();
+                return interactable.Interact(this);
             }
+
+            currentBrickRay = null;
+            Debug.Log("No interactable component, allowing movement");
+            return true;
         }
 
-        _currentBrickRay = null;
+        currentBrickRay = null;
+        Debug.Log("Raycast missed, allowing movement");
         return true;
     }
 
@@ -183,31 +160,26 @@ public class PlayerController : MonoBehaviour
 
             Move();
 
-            // Kiểm tra sau khi di chuyển
-            if (_currentBrickRay != null && _currentBrickRay.isStop)
+            if (currentBrickRay != null && currentBrickRay.IsStop)
             {
-                Debug.Log("Stopping");
+                Debug.Log("Stopping at stop point after moving");
                 StopMoving();
                 break;
             }
 
-            // Cập nhật vị trí của player
-            if (_currentBrickRay != null && _currentBrickRay.directionPush != EDirectionPlayer.None && !_currentBrickRay.isStop)
+            if (currentBrickRay != null && currentBrickRay.DirectionPush != EDirectionPlayer.None && !currentBrickRay.IsStop)
             {
-                currentDirection = _currentBrickRay.directionPush;
+                currentDirection = currentBrickRay.DirectionPush;
                 RotatePlayer();
-                _currentBrickRay = null; // Reset current brick ray after moving
-            }
-
-            if (_currentBrickRay != null && _tagActions.TryGetValue(_currentBrickRay.tag, out var action))
-            {
-                action.Invoke();
-                _currentBrickRay = null;
+                currentBrickRay = null;
             }
 
             yield return new WaitForSeconds(timeToMove);
         }
+
+        moveCoroutine = null;
     }
+
     private EDirectionPlayer GetDirectionFromVector(Vector3 direction)
     {
         if (direction.sqrMagnitude < 0.01f)
@@ -252,28 +224,14 @@ public class PlayerController : MonoBehaviour
     private void StopMoving()
     {
         currentDirection = EDirectionPlayer.None;
-        _currentBrickRay = null;
+        currentBrickRay = null;
     }
 
-    private void EndLevel()
+    public void EndLevel()
     {
         StopMoving();
         Debug.Log("Level Ended");
         StartCoroutine(EffectEndLevel());
-    }
-
-    public void ChangeAnim(int animationIndex)
-    {
-        if (animator == null || animationIndex < 0)
-        {
-            return;
-        }
-
-        if (_animStateCount != animationIndex)
-        {
-            animator.SetInteger("renwu", animationIndex);
-            _animStateCount = animationIndex;
-        }
     }
 
     private IEnumerator EffectEndLevel()
@@ -286,6 +244,24 @@ public class PlayerController : MonoBehaviour
         }
         yield return new WaitUntil(() => brickPlayer == null || brickPlayer.Count == 0);
         if (levelComplete != null) levelComplete.EffectEndLevel();
-        ChangeAnim(2);
+    }
+
+    public void ChangeAnim(int animationIndex)
+    {
+        if (animator == null || animationIndex < 0)
+        {
+            return;
+        }
+
+        if (animStateCount != animationIndex)
+        {
+            animator.SetInteger("renwu", animationIndex);
+            animStateCount = animationIndex;
+        }
+    }
+
+    public void SetTimeToMove(float time)
+    {
+        timeToMove = time;
     }
 }
