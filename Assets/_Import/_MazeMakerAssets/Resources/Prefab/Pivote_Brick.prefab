@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 33926114544505843}
   - component: {fileID: 23310507170802036}
   - component: {fileID: 8834815452316163472}
-  - component: {fileID: 7471283147200062428}
+  - component: {fileID: 1378148185903626210}
   m_Layer: 0
   m_Name: dimian
   m_TagString: Brick
@@ -244,7 +244,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000005, y: 1.0000004, z: 0.29989845}
   m_Center: {x: 0.0000060945777, y: -0.0000002920447, z: 0.14994933}
---- !u!114 &7471283147200062428
+--- !u!114 &1378148185903626210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -253,8 +253,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1494017965046362}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382270b502422ee42bd1c1bd04e07e6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 743e3071ccc52ec458dd18978b990fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 8834815452316163472}
-  _mesh: {fileID: 23310507170802036}
+  directionPush: 0
+  isStop: 0
